@@ -1,0 +1,143 @@
+/* HEADER AREA */
+
+/* call to action bar */
+#top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #437118; /* Fern Green */
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 8px 20px;
+  text-align: center;
+  z-index: 1000;
+}
+#top-bar a {
+  color: white;
+  text-decoration: underline;
+}
+
+.logo img {
+  max-height: 200px;
+  width: auto;
+  height: auto;
+}
+
+.site-header {
+  background-color: white;
+  padding: 10px 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 100;
+}
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+  .header-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: auto;
+    flex-wrap: wrap;
+  }
+  /* naviation items start here */
+  .nav-links {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+}
+.nav-links a {
+  margin-left: 20px;
+  color: #1d2a62;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.nav-links a:hover {
+  color: #437118;
+}
+
+/* naviation items end here */
+
+.hero {
+  position: relative;
+  background: url("images/hero.png") no-repeat center center/cover;
+  height: 400px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero h2,
+.hero p,
+.hero .cta-button {
+  position: relative;
+  z-index: 2;
+}
+/* HEADER AREA ENDS*/
+
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+.section {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+.services,
+.testimonials {
+  background-color: #ffffff;
+  margin-top: 20px;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.cta-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #1d2a62;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.cta-button:hover {
+  background-color: #304d9a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+footer {
+  background-color: #1d2a62;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}

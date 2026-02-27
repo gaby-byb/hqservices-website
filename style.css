@@ -121,38 +121,9 @@ a {
   cursor: pointer;
 }
 
-@media (max-width: 900px) {
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    flex-direction: column;
-    background: white;
-    padding: 10px 20px;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .burger {
-    display: block;
-  }
-
-  .nav-links a {
-    margin: 10px 0;
-  }
-
-  .about-highlights {
-    grid-template-columns: 1fr !important;
-  }
-}
-
 .hero {
   margin-top: 100px;
-  height: 90vh;
+  min-height: 90vh;
   background: url("images/hero_img.png") no-repeat center center/cover;
   position: relative;
   display: flex;
@@ -200,13 +171,17 @@ a {
   border: none;
   border-radius: var(--radius);
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
   font-size: 1rem;
   text-decoration: none;
   display: inline-block;
 }
 
 .cta-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
   background-color: #345c13;
 }
 
@@ -328,12 +303,7 @@ a {
   color: #444;
   padding: 10px;
 }
-/* Responsive: stack on small screens */
-@media (max-width: 768px) {
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
-}
+
 .testimonials p {
   background: #f7f7f7;
   padding: 20px;
@@ -431,4 +401,40 @@ footer {
   text-align: center;
   padding: 20px;
   margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background: white;
+    padding: 10px 20px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  .nav-links a {
+    margin: 10px 0;
+  }
+
+  .about-highlights {
+    grid-template-columns: 1fr !important;
+  }
+  .hero {
+    background-position: center center;
+    background: url("images/hero_img.jpeg") no-repeat center center/cover;
+  }
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
 }

@@ -7,6 +7,14 @@
   --white: #f9f9f9;
   --denim: #93aeca;
   --dark-blue: #121737;
+
+  --max: 1100px;
+  --panel: rgba(255, 255, 255, 0.78);
+  --muted: rgba(31, 35, 40, 0.72);
+  --border: rgba(31, 35, 40, 0.12);
+  --shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
+  --shadow-soft: 0 10px 28px rgba(0, 0, 0, 0.12);
+  --radius: 16px;
 }
 
 * {
@@ -30,8 +38,35 @@ header {
   z-index: 1000;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
+a {
+  color: inherit;
+  text-decoration: none;
+}
+/* CENTER */
+.header-center {
+  justify-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 
-#top-bar {
+  /* thin pill */
+  padding: 6px 14px;
+  border-radius: var(--radius);
+  background: rgba(21, 54, 35, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(10px);
+
+  color: white;
+  font-weight: 800;
+}
+
+.header-center .call-link {
+  color: var(--green-light);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.call-bar {
   background-color: var(--green-dark);
   color: white;
   padding: 8px 20px;
@@ -39,7 +74,7 @@ header {
   font-weight: bold;
 }
 
-#top-bar a {
+.call-bar a {
   color: var(--green-light);
   text-decoration: underline;
 }
@@ -86,7 +121,7 @@ header {
   cursor: pointer;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .nav-links {
     display: none;
     position: absolute;
@@ -108,6 +143,10 @@ header {
 
   .nav-links a {
     margin: 10px 0;
+  }
+
+  .about-highlights {
+    grid-template-columns: 1fr !important;
   }
 }
 
@@ -159,7 +198,7 @@ header {
   padding: 14px 28px;
   font-weight: 700;
   border: none;
-  border-radius: 6px;
+  border-radius: var(--radius);
   cursor: pointer;
   transition: background-color 0.3s ease;
   font-size: 1rem;
@@ -173,26 +212,48 @@ header {
 
 .section {
   padding: 60px 20px;
-  max-width: 1000px;
+  /* max-width: 1000px; */
   margin: auto;
   text-align: center;
+}
+
+.section h2 {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 34px;
+  margin-bottom: 14px;
+  color: var(--gray-dark);
 }
 
 .service-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
 }
+/* ABOUT CONTAINER */
+
+.container {
+  width: min(var(--max), calc(100% - 32px));
+  margin: 0 auto;
+}
+
+/* ABOUT HIGHLIGHTS */
 
 .about-highlights {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+  max-width: var(--max);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .highlight {
-  max-width: 250px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 16px;
+  box-shadow: var(--shadow-soft);
   text-align: center;
 }
 
@@ -215,17 +276,32 @@ header {
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 30px;
   margin-top: 40px;
+  max-width: var(--max);
+  margin-left: auto;
+  margin-right: auto;
 }
 
+.card-media {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
 .service-card {
+  display: block;
   background: white;
-  border-radius: 12px;
-  padding: 30px 20px;
+  border-radius: var(--radius);
+  height: 100%;
+  padding: 0;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  overflow: hidden; /* THIS is critical */
   text-align: center;
 }
 
@@ -238,6 +314,7 @@ header {
   font-size: 36px;
   color: var(--green-dark);
   margin-bottom: 15px;
+  padding: 10px;
 }
 
 .service-card h3 {
@@ -249,12 +326,18 @@ header {
 .service-card p {
   font-size: 1rem;
   color: #444;
+  padding: 10px;
 }
-
+/* Responsive: stack on small screens */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
 .testimonials p {
   background: #f7f7f7;
   padding: 20px;
-  border-radius: 6px;
+  border-radius: var(--radius);
   margin: 20px 0;
   font-style: italic;
 }
@@ -310,7 +393,7 @@ header {
   gap: 15px;
   background: white;
   padding: 30px;
-  border-radius: 12px;
+  border-radius: var(--radius);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
 }
 
@@ -318,7 +401,7 @@ header {
 .contact-form textarea {
   padding: 14px;
   border: 1px solid #ccc;
-  border-radius: 6px;
+  border-radius: var(--radius);
   font-size: 1rem;
   font-family: inherit;
   width: 100%;
